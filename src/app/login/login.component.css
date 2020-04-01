@@ -1,0 +1,30 @@
+  mat-card {
+    max-width: 400px;
+    margin: 10em auto;
+    text-align: center;
+  }
+  .example-container .mat-form-field  {
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 90%;
+    margin-bottom: 10%;
+  }
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+  mat-card-header{
+    text-align: center;
+    display: block;
+    margin-top: 20%;
+    margin-bottom: 15%;
+  }
+

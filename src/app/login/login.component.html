@@ -1,1 +1,33 @@
-<p>login works!</p>
+<mat-card class="example-card">
+    
+    <mat-card-header>
+      <img mat-card-avatar src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png" alt="User Avatar">
+      
+      <mat-card-title>LogIn</mat-card-title>
+      <mat-card-subtitle>Patient Tracker</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" required [(ngModel)] = "username" name="username">
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)] = "password" name="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        
+      </div>
+    </mat-card-content>
+    <mat-card-actions style="margin-bottom: 20px;">
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+      
+    </mat-card-actions>
+  </mat-card>
+  

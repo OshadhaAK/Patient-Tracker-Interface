@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import { from } from 'rxjs';
-
+import {MatCardModule} from '@angular/material/card';
 const MaterialComponents = [
-  MatButtonModule
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule
 ];
 
 @NgModule({
