@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   username: any;
   password: any;
+  credentials = false;
   constructor(private router: Router) {
 
    }
@@ -28,10 +29,19 @@ export class LoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
+  wrongCredentialsMessage(){
+    return "Wrong Credentials!"
+
+  }
   login(){
 
     if(this.username=='a@b.c' && this.password=='a'){
       this.router.navigate(['/dashboard', 1]);
+    }
+
+    else{
+      this.credentials = true;
+      this.wrongCredentialsMessage();
     }
 
   }

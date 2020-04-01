@@ -24,7 +24,9 @@
         </mat-form-field>
         
       </div>
+      <mat-error *ngIf="credentials">{{wrongCredentialsMessage()}}</mat-error>
     </mat-card-content>
+    
     <mat-card-actions style="margin-bottom: 20px;">
       <button mat-raised-button color="primary" (click)="login()">Login</button>
       
