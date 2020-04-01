@@ -1,0 +1,13 @@
+mat-card {
+    width: 100%;
+   
+    margin: 10em auto;
+    text-align: center;
+  }
+  
+  mat-card-header{
+    text-align: center;
+    display: block;
+    
+  }
+
