@@ -8,14 +8,18 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  public userId;
-  constructor(private route: ActivatedRoute) {
+  
+  constructor() {
 
    }
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get("id"));
-    this.userId = id;
+    
   }
+  addNew(){
 
+  }
+  viewList(){
+    
+  }
 }

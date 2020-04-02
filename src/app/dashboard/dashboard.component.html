@@ -1,26 +1,20 @@
-<mat-toolbar color="primary">
+<app-toolbar></app-toolbar>
+<mat-card class="example-card">
     
+  <mat-card-header>
+    <img mat-card-avatar src="https://www.european-radiology.org/content-er/uploads/2020/02/corona-cell-1080-1080x675.png" alt="User Avatar">
+    
+    <mat-card-title>Covid - 19 Quarantinee Registry</mat-card-title>
+    <!-- <mat-card-subtitle>Covid - 19 Quarantinee Tracker</mat-card-subtitle> -->
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    
+  </mat-card-content>
   
-    <mat-toolbar-row>
-      <span>Patient Tracker</span>
-      <span class="example-spacer"></span>
-      
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
-      
-      <mat-menu #appMenu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Help</button>
-        <button mat-menu-item>Log Out</button>
-      </mat-menu>
-      
-      <button mat-icon-button [matMenuTriggerFor]="appMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-    </mat-toolbar-row>
-  
-
-
-
-    
-    
-  </mat-toolbar>
+  <mat-card-actions style="margin-bottom: 5%;margin-top: 5%;">
+    <button style="float:left ;margin-left: 10rem;width: 30%;" mat-raised-button color="primary" (click)="addNew()"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;Add New Quarantinee</button>
+    <button style="float: right;margin-right: 10rem;width: 30%;" mat-raised-button color="primary" (click)="viewList()"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">view_list</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;Review Quarantinees</button>
+  </mat-card-actions>
+</mat-card>

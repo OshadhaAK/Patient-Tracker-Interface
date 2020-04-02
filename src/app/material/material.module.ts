@@ -4,6 +4,8 @@ import { from } from 'rxjs';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatDividerModule} from '@angular/material/divider';
 const MaterialComponents = [
   MatButtonModule,
   MatCardModule,
@@ -11,7 +13,9 @@ const MaterialComponents = [
   MatInputModule,
   MatIconModule,
   MatToolbarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatTabsModule,
+  MatDividerModule
 ];
 
 @NgModule({

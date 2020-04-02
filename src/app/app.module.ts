@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { NewQuarantineeComponent } from './new-quarantinee/new-quarantinee.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    ToolbarComponent,
+    NewQuarantineeComponent,
     
   ],
   imports: [
