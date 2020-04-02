@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
   public userId;
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     
    }
 
@@ -17,4 +17,8 @@ export class ToolbarComponent implements OnInit {
     this.userId = id;
   }
 
+  back(){
+    let selectedId = this.userId ? this.userId : null;
+    this.router.navigate(['/dashboard', {id: selectedId}],{relativeTo: this.route});
+  }
 }
