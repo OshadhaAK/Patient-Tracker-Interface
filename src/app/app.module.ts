@@ -8,12 +8,14 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NewQuarantineeComponent } from './new-quarantinee/new-quarantinee.component';
+import { ViewQuarantineesComponent } from './view-quarantinees/view-quarantinees.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     ToolbarComponent,
     NewQuarantineeComponent,
+    ViewQuarantineesComponent,
     
   ],
   imports: [

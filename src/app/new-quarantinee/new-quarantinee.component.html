@@ -1,2 +1,124 @@
 <app-toolbar></app-toolbar>
-<p>new-quarantinee works!</p>
+<mat-card class="example-card">
+    
+    <mat-card-header>
+      <img mat-card-avatar src="https://www.european-radiology.org/content-er/uploads/2020/02/corona-cell-1080-1080x675.png" alt="User Avatar">
+      
+      <mat-card-title>Add New Quarantinee</mat-card-title>
+      <!-- <mat-card-subtitle>Covid - 19 Quarantinee Tracker</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content style="padding-top: 5rem;">
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Quarantinee Name</mat-label>
+              <input matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>NIC No.</mat-label>
+                <input matInput type="number" class="example-right-align">
+                <!-- <span matPrefix>$&nbsp;</span> -->
+                <span matSuffix>V</span>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Age</mat-label>
+                <input matInput type="number" class="example-right-align">
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Contact No.</mat-label>
+                <input matInput type="number" class="example-right-align">
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <textarea matInput></textarea>
+              </mat-form-field>
+              <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Provice</mat-label>
+              <mat-select>
+                <mat-option value="option">Option1</mat-option>
+                <mat-option value="option">Option2</mat-option>
+                <mat-option value="option">Option3</mat-option>
+                <mat-option value="option">Option4</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>District</mat-label>
+                <mat-select>
+                  <mat-option value="option">Option1</mat-option>
+                  <mat-option value="option">Option2</mat-option>
+                  <mat-option value="option">Option3</mat-option>
+                  <mat-option value="option">Option4</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>GN Division</mat-label>
+                <mat-select>
+                  <mat-option value="option">Option1</mat-option>
+                  <mat-option value="option">Option2</mat-option>
+                  <mat-option value="option">Option3</mat-option>
+                  <mat-option value="option">Option4</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br><mat-form-field appearance="fill">
+                <mat-label>PHI Registration ID</mat-label>
+                <mat-select>
+                  <mat-option value="option">Option1</mat-option>
+                  <mat-option value="option">Option2</mat-option>
+                  <mat-option value="option">Option3</mat-option>
+                  <mat-option value="option">Option4</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+              <mat-divider></mat-divider>
+              <mat-card-header>
+                
+                
+                <mat-card-title>Band Configuration Settings</mat-card-title>
+                <!-- <mat-card-subtitle>Covid - 19 Quarantinee Tracker</mat-card-subtitle> -->
+              </mat-card-header>
+              <mat-divider></mat-divider>
+
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Band ID</mat-label>
+                <input matInput type="number" class="example-right-align">
+                <!-- <span matPrefix>$&nbsp;</span> -->
+                
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>GPS Location</mat-label>
+                <input matInput class="example-right-align">
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Quarantine Starting Date</mat-label>
+                <input matInput type="date" class="example-right-align">
+                <!-- <span matPrefix>$&nbsp;</span> -->
+                
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Quarantine Ending Date</mat-label>
+                <input matInput type="date" class="example-right-align">
+                <!-- <span matPrefix>$&nbsp;</span> -->
+                
+              </mat-form-field>
+              <br>
+          </div>
+          
+    </mat-card-content>
+    
+    <mat-card-actions style="margin-bottom: 5%;margin-top: 5%;">
+      <button style="width: 30%;" mat-raised-button color="primary" (click)="addNew()"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;Add New Quarantinee</button>
+      
+    </mat-card-actions>
+  </mat-card>
