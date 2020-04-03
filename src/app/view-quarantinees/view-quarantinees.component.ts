@@ -14,7 +14,7 @@ export class ViewQuarantineesComponent implements OnInit {
   status: any;
   constructor() { 
 
-    let quarantinee = { phiId : {}}
+    let quarantinee = { phiId : {  }}
 
 
   }
