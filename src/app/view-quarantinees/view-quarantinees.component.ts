@@ -12,7 +12,12 @@ export class ViewQuarantineesComponent implements OnInit {
   startDate: any;
   endDate: any;
   status: any;
-  constructor() { }
+  constructor() { 
+
+    let quarantinee = { phiId : {}}
+
+
+  }
 
   ngOnInit() {
     this.quarantineName = "Oshadha"
