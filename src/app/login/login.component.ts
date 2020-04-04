@@ -53,9 +53,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard',data.name]);
         
       }
-      /* else{
-        
-      } */
+      
       
     },(error: any) => {
       this.credentials = true;
