@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, Validators, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserForLogin } from '../modals/user'
+import { from } from 'rxjs';
+import { LoginService } from '../services/login.service';
+import { Session } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -8,41 +12,48 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
+  
   hide = true;
-  username: any;
-  password: any;
+  public loginForm: FormGroup;
   credentials = false;
-  constructor(private router: Router) {
+  constructor(private router: Router, private loginService: LoginService) {
 
    }
 
   ngOnInit() {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    });
   }
   
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  public hasError = (controlName: string, errorName: string) => {
+    return this.loginForm.controls[controlName].hasError(errorName);
   }
 
-  wrongCredentialsMessage(){
-    return "Wrong Credentials!"
 
+
+  public loginUser = (loginFormValue) => {
+    if(this.loginForm.valid) {
+      this.login(loginFormValue);
+    }
   }
-  login(){
 
-    if(this.username=='a@b.c' && this.password=='a'){
-      this.router.navigate(['/dashboard', 1]);
+
+  private login = (loginFormValue) => {
+    let user: UserForLogin = {
+      email: loginFormValue.email,
+      password: loginFormValue.password
     }
 
-    else{
-      this.credentials = true;
-      this.wrongCredentialsMessage();
-    }
-
+    
+    this.loginService.loginUser(user.email,user.password).subscribe((data: any) => {
+      if(data.message ==='Success'){
+        this.router.navigate(['/dashboard',data.name]);
+        
+      }
+      
+      
+    })
   }
 }

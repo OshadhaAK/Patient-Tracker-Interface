@@ -7,20 +7,23 @@
       <mat-card-subtitle>Covid - 19 Quarantinee Tracker</mat-card-subtitle>
     </mat-card-header>
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
     <mat-card-content>
       <div class="example-container">
         <mat-form-field appearance="fill">
           <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" required [(ngModel)] = "username" name="username">
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput placeholder="pat@example.com" formControlName="email" required id="email" name="email">
+          <mat-error *ngIf="hasError('email', 'email')">Not a valid email</mat-error>
+          <mat-error *ngIf="hasError('email', 'required')">Enter a valid email</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)] = "password" name="password">
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required id="password" name="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
+          <mat-error *ngIf="hasError('password', 'required')">Enter your password</mat-error>
         </mat-form-field>
         
       </div>
@@ -28,8 +31,9 @@
     </mat-card-content>
     
     <mat-card-actions style="margin-bottom: 20px;">
-      <button mat-raised-button color="primary" (click)="login()">Login</button>
+      <button mat-raised-button color="primary" >Login</button>
       
     </mat-card-actions>
+  </form>
   </mat-card>
   

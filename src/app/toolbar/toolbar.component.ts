@@ -13,8 +13,9 @@ export class ToolbarComponent implements OnInit {
    }
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get("id"));
+    let id = this.route.snapshot.paramMap.get("id");
     this.userId = id;
+    console.log(this.userId)
   }
 
   back(){
