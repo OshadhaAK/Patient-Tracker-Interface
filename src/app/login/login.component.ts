@@ -12,7 +12,7 @@ import { Session } from 'protractor';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+  errorMessage: any;
   hide = true;
   public loginForm: FormGroup;
   credentials = false;
@@ -48,12 +48,18 @@ export class LoginComponent implements OnInit {
 
     
     this.loginService.loginUser(user.email,user.password).subscribe((data: any) => {
+      console.log(data)
       if(data.message ==='Success'){
         this.router.navigate(['/dashboard',data.name]);
         
       }
+      /* else{
+        
+      } */
       
-      
-    })
+    },(error: any) => {
+      this.credentials = true;
+      this.errorMessage = "Wrong Credentials!!"
+    });
   }
 }
