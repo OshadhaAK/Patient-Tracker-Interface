@@ -22,7 +22,6 @@ export class NewQuarantineeComponent implements OnInit {
   constructor(private router: Router, private quarantineeService: QuarantineeService) {
 
     this.quarantineeService.getProvinces().subscribe((data: any) => {
-      console.log("kdkdkdkdkdkdkdkdkdkdkdkdkdkdk:",data[0])
       this.provinces = data[0];
     }, (error:any) => {
       console.log(error);

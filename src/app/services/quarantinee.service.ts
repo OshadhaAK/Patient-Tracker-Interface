@@ -49,4 +49,8 @@ export class QuarantineeService {
    getGns():Observable<IGn[]>{
      return this.http.get<IGn[]>(`${this.gnurl}`);
    }
+
+   filterQuarantinees(id){
+     return this.http.get(`${this.quarantineesurl}/`+id);
+   }
 }

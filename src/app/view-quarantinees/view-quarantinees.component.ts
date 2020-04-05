@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { QuarantineeService } from '../services/quarantinee.service';
 
 @Component({
   selector: 'app-view-quarantinees',
@@ -12,9 +14,10 @@ export class ViewQuarantineesComponent implements OnInit {
   startDate: any;
   endDate: any;
   status: any;
-  constructor() { 
+  quarantinees: any;
+  constructor(private router: Router, private quarantineeService: QuarantineeService ) { 
 
-    let quarantinee = { phiId : {  }}
+    
 
 
   }
@@ -24,6 +27,13 @@ export class ViewQuarantineesComponent implements OnInit {
     this.location = false;
     this.startDate = '01/04/2020';
     this.endDate = '14/04/2020';
+  }
+
+  search(id){
+    this.quarantineeService.filterQuarantinees(id).subscribe((data: any) => {
+      console.log(data);
+      this.quarantinees = data;
+    })
   }
 
 }
