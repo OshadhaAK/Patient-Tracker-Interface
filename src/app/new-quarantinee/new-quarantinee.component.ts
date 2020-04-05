@@ -13,8 +13,17 @@ import { AddForQuarantine } from '../modals/quarantinee';
 export class NewQuarantineeComponent implements OnInit {
 
   public quarantineeForm: FormGroup;
-
+  provinces: any
+  districts: any;
+  gns: any;
+  gnds: any;
+  phis: any;
+  phios: any;
   constructor(private router: Router, private quarantineeService: QuarantineeService) {
+
+    this.provinces = {"centralProvince": ['a','b','c','d','e'], "sabaragamuwaProvince": ['q','w','r','t']};
+    this.gns = {"q": ['g1','g2','g3'], "w": ['g4','g5','g6','g7'], "r": ['g8','g9','g10','g11'], "t": ['g12','g13','g14','g15']};
+    this.phis = {"g1": ['p1','p2'],"g2": ['p3','p4','p5','p6'], "g3": ['p7','p8','p9','p10','p11','p12','p13','p14','p15'], "g4": ['p16','p17','p18','p19','p20']};
 
    }
 
@@ -59,6 +68,7 @@ export class NewQuarantineeComponent implements OnInit {
       enddate: quarantineeFormValue.enddate
     }
 
+    console.log(quarantinee);
     this.quarantineeService.addQuarantinee(
       quarantineeFormValue.name,
       quarantineeFormValue.nic,
@@ -81,4 +91,24 @@ export class NewQuarantineeComponent implements OnInit {
     });
   }
 
+  changeProvince(event){
+    let province = event.value;
+    console.log("Province",province)
+    this.districts = this.provinces[province];
+    
+    
+  }
+
+  changeDistrict(event){
+    let district = event.value;
+    console.log("Distrct",district);
+    this.gnds = this.gns[district];
+  }
+
+  changeGn(event){
+    let gn = event.value;
+    console.log("GN",gn);
+    this.phios = this.phis[gn];
+
+  }
 }

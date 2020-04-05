@@ -9,17 +9,19 @@ mat-card {
     width: 90%;
     margin-bottom: 3%;
   }
-  .example-right-align {
-    text-align: right;
+  .example-left-align {
+    text-align: left;
   }
   
-  input.example-right-align::-webkit-outer-spin-button,
-  input.example-right-align::-webkit-inner-spin-button {
+  input.example-left-align::-webkit-outer-spin-button,
+  input.example-left-align::-webkit-inner-spin-button {
     display: none;
+    
   }
   
-  input.example-right-align {
+  input.example-left-align {
     -moz-appearance: textfield;
+    
   }
   mat-card-header{
     text-align: center;

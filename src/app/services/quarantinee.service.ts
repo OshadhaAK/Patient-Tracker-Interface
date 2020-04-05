@@ -7,8 +7,8 @@ import { IProvince } from '../modals/province';
 })
 export class QuarantineeService {
 
-  private quarantineesurl: string = "http://localhost:8000/api/quarantinees";
-  private provincesurl: string = "http://localhost:8000/api/provinces";
+  private quarantineesurl: string = "http://localhost:5000/api/quarantinees";
+  /* private provincesurl: string = "http://localhost:8000/api/provinces"; */
   constructor( private http: HttpClient) {
 
    }
@@ -32,7 +32,7 @@ export class QuarantineeService {
      return this.http.post(`${this.quarantineesurl}`,params);
    }
 
-   getProvinces():Observable<IProvince[]>{
+   /* getProvinces():Observable<IProvince[]>{
      return this.http.get<IProvince[]>(`${this.provincesurl}`);
-   }
+   } */
 }

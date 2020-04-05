@@ -43,44 +43,38 @@
               <br>
             <mat-form-field appearance="fill">
               <mat-label>Provice</mat-label>
-              <mat-select  formControlName="province" required id="province" name="province">
-                <mat-option value="option">Central Province</mat-option>
-                <mat-option value="option">Eastern Province</mat-option>
-                <mat-option value="option">Northern Province</mat-option>
-                <mat-option value="option">Southern Province</mat-option>
-                <mat-option value="option">Western Province</mat-option>
-                <mat-option value="option">North Western Province</mat-option>
-                <mat-option value="option">Uva Province</mat-option>
-                <mat-option value="option">Sabaragamuwa Province</mat-option>
+              <mat-select  formControlName="province" required id="province" name="province" (selectionChange)="changeProvince($event)">
+                <mat-option value="centralProvince">Central Province</mat-option>
+                <mat-option value="Eastern Province">Eastern Province</mat-option>
+                <mat-option value="Northern Province">Northern Province</mat-option>
+                <mat-option value="Southern Province">Southern Province</mat-option>
+                <mat-option value="Western Province">Western Province</mat-option>
+                <mat-option value="North Western Province">North Western Province</mat-option>
+                <mat-option value="Uva Province">Uva Province</mat-option>
+                <mat-option value="sabaragamuwaProvince">Sabaragamuwa Province</mat-option>
               </mat-select>
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>District</mat-label>
-                <mat-select  formControlName="district" required id="district" name="district">
-                  <mat-option value="option">Option1</mat-option>
-                  <mat-option value="option">Option2</mat-option>
-                  <mat-option value="option">Option3</mat-option>
-                  <mat-option value="option">Option4</mat-option>
+                <mat-select  formControlName="district" required id="district" name="district" (selectionChange)="changeDistrict($event)">
+                  <mat-option *ngFor="let item of districts; let i = index" [value]="item">{{item}}</mat-option>
+                  
                 </mat-select>
               </mat-form-field>
               <br>
               <mat-form-field appearance="fill">
                 <mat-label>GN Division</mat-label>
-                <mat-select  formControlName="gn" required id="gn" name="gn">
-                  <mat-option value="option">Option1</mat-option>
-                  <mat-option value="option">Option2</mat-option>
-                  <mat-option value="option">Option3</mat-option>
-                  <mat-option value="option">Option4</mat-option>
+                <mat-select  formControlName="gn" required id="gn" name="gn" (selectionChange)="changeGn($event)">
+                  <mat-option *ngFor="let gnd of gnds" [value]="gnd">{{gnd}}</mat-option>
+                  
                 </mat-select>
               </mat-form-field>
               <br><mat-form-field appearance="fill">
                 <mat-label>PHI Registration ID</mat-label>
                 <mat-select  formControlName="phi" required id="phi" name="phi">
-                  <mat-option value="option">Option1</mat-option>
-                  <mat-option value="option">Option2</mat-option>
-                  <mat-option value="option">Option3</mat-option>
-                  <mat-option value="option">Option4</mat-option>
+                  <mat-option *ngFor="let phio of phios" [value]="phio">{{phio}}</mat-option>
+                  
                 </mat-select>
               </mat-form-field>
               <br>
