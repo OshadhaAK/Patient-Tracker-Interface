@@ -16,7 +16,10 @@ export class LoginComponent implements OnInit {
   hide = true;
   public loginForm: FormGroup;
   credentials = false;
+  isloggedIn:any;
   constructor(private router: Router, private loginService: LoginService) {
+    this.isloggedIn = false;
+    localStorage.setItem('loggedIn', 'false');
 
    }
 
@@ -50,6 +53,8 @@ export class LoginComponent implements OnInit {
     this.loginService.loginUser(user.email,user.password).subscribe((data: any) => {
       console.log(data)
       if(data.message ==='Success'){
+        this.isloggedIn = true;
+        localStorage.setItem('loggedIn',this.isloggedIn);
         this.router.navigate(['/dashboard',data.name]);
         
       }

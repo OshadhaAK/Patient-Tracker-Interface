@@ -15,9 +15,9 @@
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>{{userId}}
       
       <mat-menu #appMenu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Help</button>
-        <button mat-menu-item>Log Out</button>
+        <!-- <button mat-menu-item>Settings</button>
+        <button mat-menu-item>Help</button> -->
+        <button mat-menu-item (click)="logout()">Log Out</button>
       </mat-menu>
       
       <button mat-icon-button [matMenuTriggerFor]="appMenu">

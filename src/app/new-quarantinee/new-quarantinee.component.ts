@@ -21,10 +21,25 @@ export class NewQuarantineeComponent implements OnInit {
   phios: any;
   constructor(private router: Router, private quarantineeService: QuarantineeService) {
 
-    this.provinces = {"centralProvince": ['a','b','c','d','e'], "sabaragamuwaProvince": ['q','w','r','t']};
-    this.gns = {"q": ['g1','g2','g3'], "w": ['g4','g5','g6','g7'], "r": ['g8','g9','g10','g11'], "t": ['g12','g13','g14','g15']};
-    this.phis = {"g1": ['p1','p2'],"g2": ['p3','p4','p5','p6'], "g3": ['p7','p8','p9','p10','p11','p12','p13','p14','p15'], "g4": ['p16','p17','p18','p19','p20']};
+    this.quarantineeService.getProvinces().subscribe((data: any) => {
+      console.log("kdkdkdkdkdkdkdkdkdkdkdkdkdkdk:",data[0])
+      this.provinces = data[0];
+    }, (error:any) => {
+      console.log(error);
+    });
 
+    this.quarantineeService.getDistricts().subscribe((data: any) => {
+      this.gns = data[0];
+    }, (error:any) => {
+      console.log(error);
+    });
+
+    this.quarantineeService.getGns().subscribe((data: any) => {
+      this.phis = data[0];
+    }, (error:any) => {
+      console.log(error);
+    });
+    
    }
 
   ngOnInit() {
@@ -85,7 +100,7 @@ export class NewQuarantineeComponent implements OnInit {
       quarantineeFormValue.enddate
       
     ).subscribe((data: any) => {
-      this.router.navigate(['/dashboard',"os"]);
+      this.router.navigate(['/dashboard',localStorage.getItem('id')]);
     },(error: any) => {
       alert("Something went wrong!!");
     });
