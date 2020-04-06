@@ -15,6 +15,7 @@ export class ViewQuarantineesComponent implements OnInit {
   endDate: any;
   status: any;
   quarantinees: any;
+  hasMoved: any;
   constructor(private router: Router, private quarantineeService: QuarantineeService ) { 
 
     
@@ -23,10 +24,7 @@ export class ViewQuarantineesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quarantineName = "Oshadha"
-    this.location = false;
-    this.startDate = '01/04/2020';
-    this.endDate = '14/04/2020';
+    
   }
 
   search(id){

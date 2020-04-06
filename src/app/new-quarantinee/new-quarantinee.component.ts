@@ -19,6 +19,7 @@ export class NewQuarantineeComponent implements OnInit {
   gnds: any;
   phis: any;
   phios: any;
+  hasMoved: any;
   constructor(private router: Router, private quarantineeService: QuarantineeService) {
 
     this.quarantineeService.getProvinces().subscribe((data: any) => {
@@ -39,6 +40,7 @@ export class NewQuarantineeComponent implements OnInit {
       console.log(error);
     });
     
+    this.hasMoved = false;
    }
 
   ngOnInit() {
@@ -79,7 +81,8 @@ export class NewQuarantineeComponent implements OnInit {
       band: quarantineeFormValue.band,
       gps: quarantineeFormValue.gps,
       startdate: quarantineeFormValue.startdate,
-      enddate: quarantineeFormValue.enddate
+      enddate: quarantineeFormValue.enddate,
+      hasMoved: this.hasMoved
     }
 
     console.log(quarantinee);
@@ -96,7 +99,8 @@ export class NewQuarantineeComponent implements OnInit {
       quarantineeFormValue.band,
       quarantineeFormValue.gps,
       quarantineeFormValue.startdate,
-      quarantineeFormValue.enddate
+      quarantineeFormValue.enddate,
+      this.hasMoved
       
     ).subscribe((data: any) => {
       this.router.navigate(['/dashboard',localStorage.getItem('id')]);

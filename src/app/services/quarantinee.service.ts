@@ -19,7 +19,7 @@ export class QuarantineeService {
 
    }
 
-   addQuarantinee(name,nic,age,tel,address,province,district,gn,phi,band,gps,startdate,enddate){
+   addQuarantinee(name,nic,age,tel,address,province,district,gn,phi,band,gps,startdate,enddate,hasMoved){
      let params = {
         name:name,
         nic:nic,
@@ -33,7 +33,8 @@ export class QuarantineeService {
         band:band,
         gps:gps,
         startdate:startdate,
-        enddate:enddate
+        enddate:enddate,
+        hasMoved:hasMoved
      }
      return this.http.post(`${this.quarantineesurl}`,params);
    }

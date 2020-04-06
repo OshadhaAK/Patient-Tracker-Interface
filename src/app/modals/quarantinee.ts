@@ -11,5 +11,6 @@ export interface AddForQuarantine{
     band: number,
     gps: string,
     startdate: Date,
-    enddate: Date
+    enddate: Date,
+    hasMoved: boolean
 }
