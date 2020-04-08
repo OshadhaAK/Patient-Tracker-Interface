@@ -67,7 +67,7 @@ export class NewQuarantineeComponent implements OnInit {
     }
   }
 
-  private addNew = (quarantineeFormValue) => {
+    addNew = (quarantineeFormValue) => {
     let quarantinee: AddForQuarantine = {
       name: quarantineeFormValue.name,
       nic: quarantineeFormValue.nic,

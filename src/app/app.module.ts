@@ -10,6 +10,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NewQuarantineeComponent } from './new-quarantinee/new-quarantinee.component';
 import { ViewQuarantineesComponent } from './view-quarantinees/view-quarantinees.component';
 import { FooterComponent } from './footer/footer.component';
+import { AgmCoreModule } from '@agm/core';
+import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,10 @@ import { FooterComponent } from './footer/footer.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCEg2ZOPAAGKdVLOqFIwDi8R3VW-Dn-IVQ'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ export class QuarantineeService {
   private provincesurl: string = "https://the-fulcrum-273413.appspot.com/api/provinces";
   private districturl: string = "https://the-fulcrum-273413.appspot.com/api/districts";
   private gnurl: string = "https://the-fulcrum-273413.appspot.com/api/gns";
+  private notifyurl: string = "http://localhost:8080/api/notify";
 
   constructor( private http: HttpClient) {
 
@@ -53,5 +54,10 @@ export class QuarantineeService {
 
    filterQuarantinees(id){
      return this.http.get(`${this.quarantineesurl}/`+id);
+   }
+
+   getLocations(id){
+     /* console.log("service") */
+     return this.http.get(`${this.notifyurl}/`+id);
    }
 }

@@ -26,7 +26,7 @@
     <mat-card-content>
         <mat-accordion *ngFor="let quarantinee of quarantinees; let i = index;"  >
             <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false" style="margin-bottom: 2%;" >
+                                 (closed)="panelOpenState = false" style="margin-bottom: 2%;">
               <mat-expansion-panel-header [class.card-danger]=quarantinee.hasMoved>
                 <mat-panel-title>
                   {{quarantinee.name}}
@@ -38,6 +38,37 @@
               <!-- <p>Location Status: {{location}}</p> -->
               <p>Started Date: {{quarantinee.startdate}}</p>
               <p>End Date: {{quarantinee.enddate}}</p>
+              <button  mat-raised-button color="primary" *ngIf="quarantinee.hasMoved" (click)="getLocations(i)" style="margin-bottom: 2%;"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">map</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;Show travelled points</button>
+            <br>
+              <agm-map *ngIf="quarantinee.hasMoved" 
+                  [latitude]="lat"
+                  [longitude]="lng"
+                  [zoom]="zoom"
+                  [disableDefaultUI]="false"
+                  [zoomControl]="false">
+
+                  <agm-marker 
+                      *ngFor="let m of markers; let i = index"
+                      (markerClick)="clickedMarker(m.label, i)"
+                      [latitude]="m.lat"
+                      [longitude]="m.lng"
+                      [label]="m.label"
+                      [markerDraggable]="m.draggable">
+                      
+                    <agm-info-window>
+                      <strong style="color: black;">InfoWindow content</strong>
+                    </agm-info-window>
+                    
+                  </agm-marker>
+                  
+                  <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+                      [radius]="5000"
+                      [fillColor]="'red'"
+                      [circleDraggable]="true"
+                      [editable]="true">
+                  </agm-circle> -->
+
+                </agm-map>
             </mat-expansion-panel>
           </mat-accordion>
           
