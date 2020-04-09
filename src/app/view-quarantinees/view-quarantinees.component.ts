@@ -30,8 +30,8 @@ export class ViewQuarantineesComponent implements OnInit {
   zoom: number = 8;
   marks: any;
   // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
+  lat: number = 7.8731;
+  lng: number = 80.7718;
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`);
@@ -52,7 +52,7 @@ export class ViewQuarantineesComponent implements OnInit {
   markers: marker[] = [];
   constructor(private router: Router, private quarantineeService: QuarantineeService ) { 
 
-   
+    
 
 
   }
