@@ -24,9 +24,8 @@
       
     </mat-card-actions>
     <mat-card-content>
-        <mat-accordion *ngFor="let quarantinee of quarantinees; let i = index;"  >
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false" style="margin-bottom: 2%;">
+        <mat-accordion   [multi]= "false">
+            <mat-expansion-panel *ngFor="let quarantinee of quarantinees; let i = index;" [expanded]="indexExpanded == i" style="margin-bottom: 2%;">
               <mat-expansion-panel-header [class.card-danger]=quarantinee.hasMoved>
                 <mat-panel-title>
                   {{quarantinee.name}}
@@ -51,9 +50,7 @@
                       *ngFor="let m of markers; let i = index"
                       (markerClick)="clickedMarker(m.label, i)"
                       [latitude]="m.lat"
-                      [longitude]="m.lng"
-                      [label]="m.label"
-                      [markerDraggable]="m.draggable">
+                      [longitude]="m.lng">
                       
                     <agm-info-window>
                       <strong style="color: black;">InfoWindow content</strong>

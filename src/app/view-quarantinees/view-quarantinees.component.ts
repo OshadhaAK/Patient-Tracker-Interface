@@ -17,6 +17,7 @@ interface marker {
   styleUrls: ['./view-quarantinees.component.css']
 })
 export class ViewQuarantineesComponent implements OnInit {
+  indexExpanded: number = -1;
   panelOpenState = false;
   quarantineName: any;
   location: any;
@@ -62,8 +63,8 @@ export class ViewQuarantineesComponent implements OnInit {
 
   search(id){
     this.quarantineeService.filterQuarantinees(id).subscribe((data: any) => {
-      console.log(data);
       this.quarantinees = data; 
+      console.log("quarantinees",this.quarantinees);
     });
   }
 
@@ -72,11 +73,12 @@ export class ViewQuarantineesComponent implements OnInit {
     /* this.markers.push({lat: 51.673858, lng:  8.815982}); */
    /*  console.log("markser",this.markers) */
     /* console.log(this.quarantinees[i].band) */
-    
-      if(this.panelOpenState){
+    this.indexExpanded = i == this.indexExpanded ? -1 : i;
+    console.log(i);
+      
         let marks = [];
         this.quarantineeService.getLocations(this.quarantinees[i].band).subscribe((data: any) => {
-          /* console.log("data",data) */
+          
           data[0].location.forEach(function (value) {
             const location = value.split(";");
             
@@ -92,8 +94,10 @@ export class ViewQuarantineesComponent implements OnInit {
         });
         
         this.markers = marks;
-    }
-    /* console.log(this.markers) */
+       
+
+    
+    console.log(this.quarantinees)
   }
 
 }
