@@ -20,7 +20,10 @@ export class NewQuarantineeComponent implements OnInit {
   phis: any;
   phios: any;
   hasMoved: any;
+  location: any;
   constructor(private router: Router, private quarantineeService: QuarantineeService) {
+
+    this.findMe();
 
     this.quarantineeService.getProvinces().subscribe((data: any) => {
       this.provinces = data[0];
@@ -55,7 +58,7 @@ export class NewQuarantineeComponent implements OnInit {
       gn: new FormControl('', [Validators.required]),
       phi: new FormControl('', [Validators.required]),
       band: new FormControl('', [Validators.required]),
-      gps: new FormControl('', [Validators.required]),
+      gps: new FormControl(''),
       startdate: new FormControl('', [Validators.required]),
       enddate: new FormControl('', [Validators.required])
     });
@@ -79,7 +82,7 @@ export class NewQuarantineeComponent implements OnInit {
       gn: quarantineeFormValue.gn,
       phi: quarantineeFormValue.phi,
       band: quarantineeFormValue.band,
-      gps: quarantineeFormValue.gps,
+      gps: this.location,
       startdate: quarantineeFormValue.startdate,
       enddate: quarantineeFormValue.enddate,
       hasMoved: this.hasMoved
@@ -97,7 +100,7 @@ export class NewQuarantineeComponent implements OnInit {
       quarantineeFormValue.gn,
       quarantineeFormValue.phi,
       quarantineeFormValue.band,
-      quarantineeFormValue.gps,
+      this.location,
       quarantineeFormValue.startdate,
       quarantineeFormValue.enddate,
       this.hasMoved
@@ -128,5 +131,14 @@ export class NewQuarantineeComponent implements OnInit {
     console.log("GN",gn);
     this.phios = this.phis[gn];
 
+  }
+
+  findMe(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.location = String(position.coords.latitude)+";"+String(position.coords.longitude)
+        console.log(this.location);
+      })
+    }
   }
 }
