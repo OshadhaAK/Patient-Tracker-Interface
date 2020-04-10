@@ -78,7 +78,7 @@ export class ViewQuarantineesComponent implements OnInit {
       
         let marks = [];
         this.quarantineeService.getLocations(this.quarantinees[i].band).subscribe((data: any) => {
-          
+          console.log("location_data",data)
           data[0].location.forEach(function (value) {
             const location = value.split(";");
             
