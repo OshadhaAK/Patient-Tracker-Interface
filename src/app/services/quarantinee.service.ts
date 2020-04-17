@@ -10,11 +10,11 @@ import { IGn } from '../modals/gn';
 })
 export class QuarantineeService {
 
-  private quarantineesurl: string = "http://localhost:8080/api/quarantinees";
+  private quarantineesurl: string = "https://the-fulcrum-273413.appspot.com/api/quarantinees";
   private provincesurl: string = "https://the-fulcrum-273413.appspot.com/api/provinces";
   private districturl: string = "https://the-fulcrum-273413.appspot.com/api/districts";
   private gnurl: string = "https://the-fulcrum-273413.appspot.com/api/gns";
-  private notifyurl: string = "http://localhost:8080/api/notify";
+  private notifyurl: string = "https://the-fulcrum-273413.appspot.com/api/notify";
 
   constructor( private http: HttpClient) {
 
