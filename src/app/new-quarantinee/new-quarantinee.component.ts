@@ -137,7 +137,7 @@ export class NewQuarantineeComponent implements OnInit {
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition((position) => {
         this.location = String(position.coords.latitude)+";"+String(position.coords.longitude)
-        console.log(this.location);
+        console.log("current location",this.location);
       })
     }
   }

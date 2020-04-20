@@ -1,20 +1,35 @@
 <app-toolbar></app-toolbar>
 <mat-card class="example-card">
-    
+
   <mat-card-header>
-    <img mat-card-avatar src="https://www.european-radiology.org/content-er/uploads/2020/02/corona-cell-1080-1080x675.png" alt="User Avatar">
-    
-    <mat-card-title>Covid - 19 Quarantinee Registry</mat-card-title>
+    <img mat-card-avatar
+      src="https://www.european-radiology.org/content-er/uploads/2020/02/corona-cell-1080-1080x675.png"
+      alt="User Avatar">
+
+    <mat-card-title>Covid-19 Self Quarantine Registry</mat-card-title>
     <!-- <mat-card-subtitle>Covid - 19 Quarantinee Tracker</mat-card-subtitle> -->
   </mat-card-header>
   <mat-divider></mat-divider>
   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <mat-card-content>
-    
+
   </mat-card-content>
-  
+
   <mat-card-actions style="margin-bottom: 5%;margin-top: 5%;">
-    <button style="margin-bottom: 2%;" mat-raised-button color="primary" (click)="addNew()"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add_circle</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;Add New Quarantinee</button>
-    <button mat-raised-button color="primary" (click)="viewList()"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">view_list</mat-icon>&nbsp;&nbsp;&nbsp;&nbsp;Review Quarantinees</button>
+    <button style="margin-bottom: 2%;" mat-raised-button color="primary" (click)="addNew()">
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">add_circle</mat-icon>
+      &nbsp;&nbsp;&nbsp;&nbsp;Add New Quarantinee
+    </button>
+    <button mat-raised-button color="primary" (click)="viewList()">
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">view_list</mat-icon>
+      &nbsp;&nbsp;&nbsp;&nbsp;Review Quarantinees
+    </button>
   </mat-card-actions>
+  <mat-card-footer>
+    <a mat-raised-button href="https://gisspl.maps.arcgis.com/apps/opsdashboard/index.html#/58a3e95edae943ea8a0e311317f560f6" target="_blank">Sri Lankan situation</a>
+    <a mat-raised-button href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6" target="_blank">World situation</a>
+    <a mat-raised-button href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters" target="_blank">WHO guidance</a>
+    <a mat-raised-button href="http://www.mri.gov.lk/2020/01/25/novel-coronavirus-2019-ncov-advice-for-the-public-who/" target="_blank">Medical research institute – Sri Lanka</a>
+    <a mat-raised-button href="http://www.epid.gov.lk/web/" target="_blank">Epidemiology unit – Ministry of Health -  Sri Lanka</a>
+  </mat-card-footer>
 </mat-card>

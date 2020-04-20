@@ -2,6 +2,7 @@ mat-card {
   width: 70%;
   margin: 10em auto;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .example-container .mat-form-field  {
   margin-left: 8px;
@@ -26,5 +27,9 @@ mat-card-header{
   display: block;
   margin-top: 20%;
   
+}
+mat-card-footer a{
+  background-color: rgba(0, 0, 0, 0.6);
+  border-right: 3px solid whitesmoke;
 }
 

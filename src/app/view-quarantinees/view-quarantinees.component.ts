@@ -8,7 +8,7 @@ import { makeBindingParser } from '@angular/compiler';
 interface marker {
   lat: number;
   lng: number;
-  
+  label: string;
 }
 
 @Component({
@@ -29,6 +29,7 @@ export class ViewQuarantineesComponent implements OnInit {
   // google maps zoom level
   zoom: number = 8;
   marks: any;
+  label: any;
   // initial center position for the map
   lat: number = 7.8731;
   lng: number = 80.7718;
@@ -79,12 +80,13 @@ export class ViewQuarantineesComponent implements OnInit {
         let marks = [];
         this.quarantineeService.getLocations(this.quarantinees[i].band).subscribe((data: any) => {
           console.log("location_data",data)
-          data[0].location.forEach(function (value) {
+          data[0].location.forEach(function (value, index) {
             const location = value.split(";");
             
               var points = { 
                 lat:Number(location[0]), 
-                lng:Number(location[1])
+                lng:Number(location[1]),
+                label: String(index)
             };
               marks.push(points);
           
@@ -94,10 +96,17 @@ export class ViewQuarantineesComponent implements OnInit {
         });
         
         this.markers = marks;
-       
+        
 
     
     console.log(this.quarantinees)
   }
+  getLabel(point: any): any {
+
+    return (point.label == "0") ? "A" : "";
+  
+  }
+
+  
 
 }

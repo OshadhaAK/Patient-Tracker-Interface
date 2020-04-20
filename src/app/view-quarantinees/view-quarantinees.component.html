@@ -1,5 +1,5 @@
 <app-toolbar></app-toolbar>
-<mat-card class="example-card">
+<mat-card class="example-card" >
     
     <mat-card-header>
       <img mat-card-avatar src="https://www.european-radiology.org/content-er/uploads/2020/02/corona-cell-1080-1080x675.png" alt="User Avatar">
@@ -48,13 +48,11 @@
 
                   <agm-marker 
                       *ngFor="let m of markers; let i = index"
-                      (markerClick)="clickedMarker(m.label, i)"
                       [latitude]="m.lat"
-                      [longitude]="m.lng">
+                      [longitude]="m.lng"
+                      [label] = "getLabel(m)">
                       
-                    <agm-info-window>
-                      <strong style="color: black;">InfoWindow content</strong>
-                    </agm-info-window>
+                    
                     
                   </agm-marker>
                   
@@ -73,3 +71,4 @@
     </mat-card-content>
 
   </mat-card>
+ 
